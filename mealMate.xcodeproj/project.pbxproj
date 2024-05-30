@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A33EC362C04717E004BD304 /* onboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A33EC352C04717E004BD304 /* onboardingPage.swift */; };
+		1A33EC382C047A5B004BD304 /* scanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A33EC372C047A5B004BD304 /* scanPage.swift */; };
+		1A33EC3A2C0638E2004BD304 /* scanResultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A33EC392C0638E2004BD304 /* scanResultPage.swift */; };
 		3022E9132C046A5500E21163 /* mealMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022E9122C046A5500E21163 /* mealMateApp.swift */; };
 		3022E9152C046A5500E21163 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022E9142C046A5500E21163 /* ContentView.swift */; };
 		3022E9172C046A5600E21163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3022E9162C046A5600E21163 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A33EC352C04717E004BD304 /* onboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingPage.swift; sourceTree = "<group>"; };
+		1A33EC372C047A5B004BD304 /* scanPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanPage.swift; sourceTree = "<group>"; };
+		1A33EC392C0638E2004BD304 /* scanResultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanResultPage.swift; sourceTree = "<group>"; };
 		3022E90F2C046A5500E21163 /* mealMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mealMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3022E9122C046A5500E21163 /* mealMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mealMateApp.swift; sourceTree = "<group>"; };
 		3022E9142C046A5500E21163 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +102,9 @@
 			children = (
 				3022E9122C046A5500E21163 /* mealMateApp.swift */,
 				3022E9142C046A5500E21163 /* ContentView.swift */,
+				1A33EC352C04717E004BD304 /* onboardingPage.swift */,
+				1A33EC372C047A5B004BD304 /* scanPage.swift */,
+				1A33EC392C0638E2004BD304 /* scanResultPage.swift */,
 				3022E9162C046A5600E21163 /* Assets.xcassets */,
 				3022E9182C046A5600E21163 /* Preview Content */,
 			);
@@ -258,7 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3022E9152C046A5500E21163 /* ContentView.swift in Sources */,
+				1A33EC3A2C0638E2004BD304 /* scanResultPage.swift in Sources */,
 				3022E9132C046A5500E21163 /* mealMateApp.swift in Sources */,
+				1A33EC362C04717E004BD304 /* onboardingPage.swift in Sources */,
+				1A33EC382C047A5B004BD304 /* scanPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,9 +434,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mealMate/Preview Content\"";
-				DEVELOPMENT_TEAM = C8496U3L79;
+				DEVELOPMENT_TEAM = 8GG8NS3LQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -451,9 +464,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mealMate/Preview Content\"";
-				DEVELOPMENT_TEAM = C8496U3L79;
+				DEVELOPMENT_TEAM = 8GG8NS3LQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
