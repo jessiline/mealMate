@@ -21,7 +21,7 @@ struct RecipeDetailView: View {
 //                .navigationBarBackButtonHidden(false)
 //                Spacer()
 //            }
-//            
+//
 //        }
         VStack{
             Image("kambingguling")

@@ -62,6 +62,8 @@ struct scanPage: View {
     @State private var showAlert = false
     @State private var navigateToResultPage = false
     @State private var names: [String] = []
+    @Binding var isClicked: Bool
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -79,11 +81,13 @@ struct scanPage: View {
                             .foregroundColor(.black)
                             .padding([.top, .leading], 40.0)
                         Spacer()
-                        Text("Saved items")
-                            .font(.system(size: 17))
-                            .fontWeight(.medium)
-                            .padding([.top, .trailing], 40.0)
-                            .foregroundColor(.red)
+                        NavigationLink(destination: SavedItemsView(isClicked: $isClicked).navigationBarTitle("Recipe Result")) {
+                            Text("Saved items")
+                                .font(.system(size: 17))
+                                .padding([.top, .trailing], 40.0)
+                                .foregroundColor(.red)
+                        }
+                        
                     }
                     Spacer()
                 }
@@ -96,15 +100,16 @@ struct scanPage: View {
                         .frame(width: 100, height: 80)
                     
                     Text("Start scanning your ingredients!")
-                        .font(.system(size: 25))
+                        .font(.system(size: 18))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
+                        .padding(.vertical,20)
                     
                     Button(action: {
                         showAlert = true
                     }) {
                         Text("Scan")
-                            .fontWeight(.bold)
+                            .fontWeight(.medium)
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color(hex: "DC2626"))
@@ -124,7 +129,7 @@ struct scanPage: View {
                     }
                 }
                 
-                NavigationLink(destination: scanResultPage(names: $names, image: $capturedImage).navigationBarTitle("Scan Result"), isActive: $navigateToResultPage) {
+                NavigationLink(destination: scanResultPage(names: $names, image: $capturedImage, isClicked: $isClicked).navigationBarTitle("Scan Result"), isActive: $navigateToResultPage) {
                     EmptyView()
                 }
               
@@ -141,7 +146,7 @@ struct scanPage: View {
         .accentColor(Color.red)
     }
 }
-
-#Preview {
-    scanPage()
-}
+//
+//#Preview {
+//    scanPage()
+//}

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ResultView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var isClicked = false
+    @Binding var isClicked: Bool
     var body: some View {
         VStack{
             ScrollView{
@@ -161,6 +161,6 @@ struct ResultView: View {
     }
 }
 
-#Preview {
-    ResultView()
-}
+//#Preview {
+//    ResultView()
+//}

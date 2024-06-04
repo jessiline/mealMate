@@ -12,7 +12,7 @@ struct CustomButton: View {
     var body: some View {
         Text(text)
             .font(.system(size: 14))
-            .fontWeight(.semibold)
+            .fontWeight(.medium)
             .frame(width: 330, height: 45)
             .background(Color(red: 220/255, green: 38/255, blue: 38/255))
             .foregroundColor(.white)
