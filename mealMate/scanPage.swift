@@ -120,7 +120,8 @@ struct scanPage: View {
                     .alert(isPresented: $showAlert) {
                         Alert(
                             title: Text("Scan your ingredients"),
-                            message: Text("Place all your ingredients together and scan them in one go."),
+                          /*  message: Text("Place all your ingredients together and scan them in one go.")*/
+                            message: Text("Switch your camera to landscape mode to take the photo."),
                             primaryButton: .default(Text("OK")) {
                                 showCamera = true
                             },
