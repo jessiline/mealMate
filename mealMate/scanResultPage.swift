@@ -15,7 +15,6 @@ struct scanResultPage: View {
     @Binding var image: UIImage?
     @Binding var isClicked: Bool
     @FocusState private var isTextFieldFocused: Bool
-    
     @State private var classificationResults: [String] = []
     
     var body: some View {
@@ -111,7 +110,7 @@ struct scanResultPage: View {
             .cornerRadius(10)
             .font(.callout)
             
-            NavigationLink(destination: ResultView(isClicked: $isClicked).navigationBarTitle("Recipe Result")) {
+            NavigationLink(destination: ResultView(isClicked: $isClicked, classificationResults: $classificationResults).navigationBarTitle("Recipe Result")) {
                 CustomButton(text: "Generate Recipe")
                     .padding(.top)
             }

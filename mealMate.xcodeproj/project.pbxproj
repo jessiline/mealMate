@@ -10,7 +10,6 @@
 		1A33EC362C04717E004BD304 /* onboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A33EC352C04717E004BD304 /* onboardingPage.swift */; };
 		1A33EC382C047A5B004BD304 /* scanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A33EC372C047A5B004BD304 /* scanPage.swift */; };
 		1A33EC3A2C0638E2004BD304 /* scanResultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A33EC392C0638E2004BD304 /* scanResultPage.swift */; };
-		1AD8AE4F2C0EFB5A00C94654 /* proteindetection.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD8AE4E2C0EFB5A00C94654 /* proteindetection.mlmodel */; };
 		3022E9132C046A5500E21163 /* mealMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022E9122C046A5500E21163 /* mealMateApp.swift */; };
 		3022E9152C046A5500E21163 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022E9142C046A5500E21163 /* ContentView.swift */; };
 		3022E9172C046A5600E21163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3022E9162C046A5600E21163 /* Assets.xcassets */; };
@@ -22,6 +21,11 @@
 		3022E93F2C0476C600E21163 /* button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022E93E2C0476C600E21163 /* button.swift */; };
 		3022E9412C05D9B300E21163 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022E9402C05D9B300E21163 /* ResultView.swift */; };
 		3022E9432C06D63D00E21163 /* SavedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022E9422C06D63D00E21163 /* SavedItemsView.swift */; };
+		3089B4262C1047F7008886D8 /* proteindetection.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3089B4252C1047F7008886D8 /* proteindetection.mlmodel */; };
+		3089B42E2C10487A008886D8 /* dataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3089B42D2C10487A008886D8 /* dataset.swift */; };
+		3089B4482C10C825008886D8 /* dataset-ikan.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3089B4452C10C825008886D8 /* dataset-ikan.csv */; };
+		3089B4492C10C825008886D8 /* dataset-sapi.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3089B4462C10C825008886D8 /* dataset-sapi.csv */; };
+		3089B44A2C10C825008886D8 /* dataset-ayam.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3089B4472C10C825008886D8 /* dataset-ayam.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +49,6 @@
 		1A33EC352C04717E004BD304 /* onboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingPage.swift; sourceTree = "<group>"; };
 		1A33EC372C047A5B004BD304 /* scanPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanPage.swift; sourceTree = "<group>"; };
 		1A33EC392C0638E2004BD304 /* scanResultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanResultPage.swift; sourceTree = "<group>"; };
-		1AD8AE4E2C0EFB5A00C94654 /* proteindetection.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = proteindetection.mlmodel; path = ../../../../Desktop/proteindetection.mlmodel; sourceTree = "<group>"; };
 		3022E90F2C046A5500E21163 /* mealMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mealMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3022E9122C046A5500E21163 /* mealMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mealMateApp.swift; sourceTree = "<group>"; };
 		3022E9142C046A5500E21163 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -60,6 +63,11 @@
 		3022E93E2C0476C600E21163 /* button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = button.swift; sourceTree = "<group>"; };
 		3022E9402C05D9B300E21163 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		3022E9422C06D63D00E21163 /* SavedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
+		3089B4252C1047F7008886D8 /* proteindetection.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = proteindetection.mlmodel; path = ../../../../Downloads/proteindetection.mlmodel; sourceTree = "<group>"; };
+		3089B42D2C10487A008886D8 /* dataset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataset.swift; sourceTree = "<group>"; };
+		3089B4452C10C825008886D8 /* dataset-ikan.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-ikan.csv"; path = "../../../../Downloads/dataset-ikan.csv"; sourceTree = "<group>"; };
+		3089B4462C10C825008886D8 /* dataset-sapi.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-sapi.csv"; path = "../../../../Downloads/dataset-sapi.csv"; sourceTree = "<group>"; };
+		3089B4472C10C825008886D8 /* dataset-ayam.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-ayam.csv"; path = "../../../../Downloads/dataset-ayam.csv"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +127,11 @@
 				1A33EC352C04717E004BD304 /* onboardingPage.swift */,
 				1A33EC372C047A5B004BD304 /* scanPage.swift */,
 				1A33EC392C0638E2004BD304 /* scanResultPage.swift */,
-				1AD8AE4E2C0EFB5A00C94654 /* proteindetection.mlmodel */,
+				3089B42D2C10487A008886D8 /* dataset.swift */,
+				3089B4472C10C825008886D8 /* dataset-ayam.csv */,
+				3089B4452C10C825008886D8 /* dataset-ikan.csv */,
+				3089B4462C10C825008886D8 /* dataset-sapi.csv */,
+				3089B4252C1047F7008886D8 /* proteindetection.mlmodel */,
 				3022E9162C046A5600E21163 /* Assets.xcassets */,
 				3022E9182C046A5600E21163 /* Preview Content */,
 			);
@@ -255,7 +267,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3089B44A2C10C825008886D8 /* dataset-ayam.csv in Resources */,
+				3089B4482C10C825008886D8 /* dataset-ikan.csv in Resources */,
 				3022E91A2C046A5600E21163 /* Preview Assets.xcassets in Resources */,
+				3089B4492C10C825008886D8 /* dataset-sapi.csv in Resources */,
 				3022E9172C046A5600E21163 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,16 +296,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3089B4262C1047F7008886D8 /* proteindetection.mlmodel in Sources */,
 				3022E9152C046A5500E21163 /* ContentView.swift in Sources */,
 				3022E9432C06D63D00E21163 /* SavedItemsView.swift in Sources */,
 				3022E9132C046A5500E21163 /* mealMateApp.swift in Sources */,
 				3022E9412C05D9B300E21163 /* ResultView.swift in Sources */,
 				3022E93D2C046DCA00E21163 /* RecipeDetailView.swift in Sources */,
 				3022E93F2C0476C600E21163 /* button.swift in Sources */,
-				1AD8AE4F2C0EFB5A00C94654 /* proteindetection.mlmodel in Sources */,
 				1A33EC3A2C0638E2004BD304 /* scanResultPage.swift in Sources */,
 				3022E9132C046A5500E21163 /* mealMateApp.swift in Sources */,
 				1A33EC362C04717E004BD304 /* onboardingPage.swift in Sources */,
+				3089B42E2C10487A008886D8 /* dataset.swift in Sources */,
 				1A33EC382C047A5B004BD304 /* scanPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,7 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mealMate/Preview Content\"";
-				DEVELOPMENT_TEAM = 8GG8NS3LQ8;
+				DEVELOPMENT_TEAM = C8496U3L79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -485,7 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mealMate/Preview Content\"";
-				DEVELOPMENT_TEAM = 8GG8NS3LQ8;
+				DEVELOPMENT_TEAM = C8496U3L79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
