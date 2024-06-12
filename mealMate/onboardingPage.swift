@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct onboardingPage: View {
-    @State private var isClicked = false
-
+    @State private var ayamData: [AyamData] = []
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,7 +39,7 @@ struct onboardingPage: View {
                         .padding([.horizontal, .bottom])
                         .ignoresSafeArea()
                     Spacer()
-                    NavigationLink(destination: scanPage(isClicked: $isClicked).navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: scanPage().navigationBarBackButtonHidden(true)) {
                         HStack {
                             Text("Get Started")
                             Image(systemName: "arrow.right")
@@ -64,7 +63,6 @@ struct onboardingPage: View {
     }
 }
 
-#Preview {
-    onboardingPage()
-}
-
+//#Preview {
+//    onboardingPage()
+//}

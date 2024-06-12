@@ -62,7 +62,8 @@ struct scanPage: View {
     @State private var showAlert = false
     @State private var navigateToResultPage = false
     @State private var names: [String] = []
-    @Binding var isClicked: Bool
+    @State private var ayamData: [AyamData] = []
+    @State private var allIngredients: [String] = []
 
     var body: some View {
         NavigationView {
@@ -81,7 +82,7 @@ struct scanPage: View {
                             .foregroundColor(.black)
                             .padding([.top, .leading], 40.0)
                         Spacer()
-                        NavigationLink(destination: SavedItemsView(isClicked: $isClicked).navigationBarTitle("Recipe Result")) {
+                        NavigationLink(destination: SavedItemsView(ayamData: $ayamData, allIngredients: $allIngredients).navigationBarTitle("Recipe Result")) {
                             Text("Saved items")
                                 .font(.system(size: 17))
                                 .padding([.top, .trailing], 40.0)
@@ -130,7 +131,7 @@ struct scanPage: View {
                     }
                 }
                 
-                NavigationLink(destination: scanResultPage(names: $names, image: $capturedImage, isClicked: $isClicked).navigationBarTitle("Scan Result"), isActive: $navigateToResultPage) {
+                NavigationLink(destination: scanResultPage(names: $names, image: $capturedImage).navigationBarTitle("Scan Result"), isActive: $navigateToResultPage) {
                     EmptyView()
                 }
               

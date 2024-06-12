@@ -23,9 +23,10 @@
 		3022E9432C06D63D00E21163 /* SavedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022E9422C06D63D00E21163 /* SavedItemsView.swift */; };
 		3089B4262C1047F7008886D8 /* proteindetection.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3089B4252C1047F7008886D8 /* proteindetection.mlmodel */; };
 		3089B42E2C10487A008886D8 /* dataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3089B42D2C10487A008886D8 /* dataset.swift */; };
-		3089B4482C10C825008886D8 /* dataset-ikan.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3089B4452C10C825008886D8 /* dataset-ikan.csv */; };
-		3089B4492C10C825008886D8 /* dataset-sapi.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3089B4462C10C825008886D8 /* dataset-sapi.csv */; };
-		3089B44A2C10C825008886D8 /* dataset-ayam.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3089B4472C10C825008886D8 /* dataset-ayam.csv */; };
+		3089B44C2C11A942008886D8 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3089B44B2C11A942008886D8 /* DataItem.swift */; };
+		3089B45A2C159E3D008886D8 /* dataset-sapi.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3089B4592C159E3D008886D8 /* dataset-sapi.csv */; };
+		30FAEAFD2C16AB4E00E9525B /* dataset-ayam.csv in Resources */ = {isa = PBXBuildFile; fileRef = 30FAEAFC2C16AB4E00E9525B /* dataset-ayam.csv */; };
+		30FAEAFF2C1811AD00E9525B /* dataset ikan.csv in Resources */ = {isa = PBXBuildFile; fileRef = 30FAEAFE2C1811AD00E9525B /* dataset ikan.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,9 +66,10 @@
 		3022E9422C06D63D00E21163 /* SavedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
 		3089B4252C1047F7008886D8 /* proteindetection.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = proteindetection.mlmodel; path = ../../../../Downloads/proteindetection.mlmodel; sourceTree = "<group>"; };
 		3089B42D2C10487A008886D8 /* dataset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataset.swift; sourceTree = "<group>"; };
-		3089B4452C10C825008886D8 /* dataset-ikan.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-ikan.csv"; path = "../../../../Downloads/dataset-ikan.csv"; sourceTree = "<group>"; };
-		3089B4462C10C825008886D8 /* dataset-sapi.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-sapi.csv"; path = "../../../../Downloads/dataset-sapi.csv"; sourceTree = "<group>"; };
-		3089B4472C10C825008886D8 /* dataset-ayam.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-ayam.csv"; path = "../../../../Downloads/dataset-ayam.csv"; sourceTree = "<group>"; };
+		3089B44B2C11A942008886D8 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
+		3089B4592C159E3D008886D8 /* dataset-sapi.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-sapi.csv"; path = "../../../../Downloads/dataset-sapi.csv"; sourceTree = "<group>"; };
+		30FAEAFC2C16AB4E00E9525B /* dataset-ayam.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-ayam.csv"; path = "../../../../Downloads/dataset-ayam.csv"; sourceTree = "<group>"; };
+		30FAEAFE2C1811AD00E9525B /* dataset ikan.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset ikan.csv"; path = "../../../../Downloads/dataset ikan.csv"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,9 +130,10 @@
 				1A33EC372C047A5B004BD304 /* scanPage.swift */,
 				1A33EC392C0638E2004BD304 /* scanResultPage.swift */,
 				3089B42D2C10487A008886D8 /* dataset.swift */,
-				3089B4472C10C825008886D8 /* dataset-ayam.csv */,
-				3089B4452C10C825008886D8 /* dataset-ikan.csv */,
-				3089B4462C10C825008886D8 /* dataset-sapi.csv */,
+				3089B44B2C11A942008886D8 /* DataItem.swift */,
+				3089B4592C159E3D008886D8 /* dataset-sapi.csv */,
+				30FAEAFE2C1811AD00E9525B /* dataset ikan.csv */,
+				30FAEAFC2C16AB4E00E9525B /* dataset-ayam.csv */,
 				3089B4252C1047F7008886D8 /* proteindetection.mlmodel */,
 				3022E9162C046A5600E21163 /* Assets.xcassets */,
 				3022E9182C046A5600E21163 /* Preview Content */,
@@ -267,10 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3089B44A2C10C825008886D8 /* dataset-ayam.csv in Resources */,
-				3089B4482C10C825008886D8 /* dataset-ikan.csv in Resources */,
+				30FAEAFD2C16AB4E00E9525B /* dataset-ayam.csv in Resources */,
 				3022E91A2C046A5600E21163 /* Preview Assets.xcassets in Resources */,
-				3089B4492C10C825008886D8 /* dataset-sapi.csv in Resources */,
+				3089B45A2C159E3D008886D8 /* dataset-sapi.csv in Resources */,
+				30FAEAFF2C1811AD00E9525B /* dataset ikan.csv in Resources */,
 				3022E9172C046A5600E21163 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +303,7 @@
 				3022E9152C046A5500E21163 /* ContentView.swift in Sources */,
 				3022E9432C06D63D00E21163 /* SavedItemsView.swift in Sources */,
 				3022E9132C046A5500E21163 /* mealMateApp.swift in Sources */,
+				3089B44C2C11A942008886D8 /* DataItem.swift in Sources */,
 				3022E9412C05D9B300E21163 /* ResultView.swift in Sources */,
 				3022E93D2C046DCA00E21163 /* RecipeDetailView.swift in Sources */,
 				3022E93F2C0476C600E21163 /* button.swift in Sources */,

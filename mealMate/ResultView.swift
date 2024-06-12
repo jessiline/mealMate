@@ -6,113 +6,190 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ResultView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @Binding var isClicked: Bool
     @State private var ayamData: [AyamData] = []
     @Binding var classificationResults: [String]
-    @State private var shuffledData: [AyamData] = []
+    @Environment(\.modelContext) private var context
+    @State private var displayedItemCount: Int = 6
+    @Binding var allIngredients: [String]
+    @State private var showAlert = false
 
     var body: some View {
-        VStack{
-            ScrollView{
+        VStack {
+            ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 175))]) {
-                    ForEach(shuffledData.prefix(5)) { item in                            VStack {
-                                Image("kambingguling")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
+                    ForEach(ayamData.prefix(displayedItemCount)) { item in
+                        NavigationLink(destination: RecipeDetailView(ayamData: [item], allIngredients: $allIngredients).navigationBarTitle("Recipe Details")) {
+                            VStack {
+                                if let url = URL(string: "https://\(item.Url)") {
+                                    AsyncImage(url: url) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
                                     .frame(width: 165, height: 105)
                                     .clipShape(
                                         UnevenRoundedRectangle(topLeadingRadius: 12, topTrailingRadius: 12)
                                     )
                                 
-                                ZStack{
+                                }
+
+                                ZStack {
                                     UnevenRoundedRectangle(bottomLeadingRadius: 12, bottomTrailingRadius: 12)
                                         .frame(width: 165, height: 110)
                                         .foregroundColor(.white)
-                                    VStack{
-                                        HStack{
-                                            Text(item.Title) // Use item.Title here
+                                    VStack {
+                                        HStack {
+                                            Text(item.Title)
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(.black)
                                             Spacer()
                                         }
-//                                        HStack{
-//                                            Text("102 Calories")
-//                                                .font(.system(size: 12))
-//                                                .foregroundColor(.gray)
-//                                                .padding(.top,1)
-//                                            Spacer()
-//                                        }
                                         Spacer()
                                     }
                                     .padding(10)
-                                    VStack(){
+                                    VStack {
                                         Spacer()
-                                        HStack{
+                                        HStack {
                                             Spacer()
                                             ZStack {
                                                 Circle()
                                                     .frame(width: 40, height: 40)
-                                                    .foregroundColor(item.isClicked ? Color(red: 220/255, green: 38/255, blue: 38/255) : .white)
+                                                    .foregroundColor(getHeartColor(for: item))
                                                     .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 3)
                                                 
                                                 Image(systemName: "heart")
                                                     .resizable()
                                                     .aspectRatio(contentMode: .fit)
                                                     .frame(width: 18, height: 18)
-                                                    .foregroundColor(item.isClicked ? .white : Color(red: 220/255, green: 38/255, blue: 38/255))
+                                                    .foregroundColor(getHeartIconColor(for: item))
                                                 
                                             }
                                             .onTapGesture {
-                                                shuffledData[shuffledData.firstIndex(where: { $0.id == item.id })!].isClicked.toggle()
+                                                let index = ayamData.firstIndex(where: { $0.id == item.id })!
+                                                ayamData[index].isClicked.toggle()
+                                                if ayamData[index].isClicked {
+                                                    addItem(item)
+                                                } else {
+                                                    deleteItem(item)
+                                                }
                                             }
                                             .padding(10)
                                         }
                                     }
-                                    
                                 }
-                                .padding(.top,-9)
+                                .padding(.top, -9)
                                 .frame(maxWidth: 165)
                             }
                             .padding(.top)
                         }
                     }
+                    .padding(.horizontal)
+                    
+                }
+                .frame(maxWidth: .infinity)
                 .padding(.horizontal)
-
-
+                Spacer()
+                if displayedItemCount < 20 {
+                    CustomButton(text: "See More")
+                        .padding(.top)
+                        .onTapGesture {
+                            displayedItemCount = 20  // Update the count to show 20 items
+                        }
+                }
             }
+            .background(Color(red: 244/255, green: 244/255, blue: 244/255))
+            .padding(.top, 0.2)
+            .navigationBarItems(trailing:
+                                    NavigationLink(destination: SavedItemsView(ayamData: $ayamData, allIngredients: $allIngredients).navigationBarTitle("Saved Items")) {
+                    Text("Saved Items")
+                }
+            )
+            .onAppear {
+//                print("allIngredients in ResultView: \(allIngredients)")
+                guard !classificationResults.isEmpty else {
+                    var alertMessage = "Tidak ada hasil klasifikasi yang tersedia"
+                    showAlert = true
+                    return
+                }
 
-            .frame(maxWidth: .infinity)
-            Spacer()
-            
-            
-        }
-        .background(Color(red: 244/255, green: 244/255, blue: 244/255))
-        .padding(.top,0.2)
-        .navigationBarItems(trailing:
-                            NavigationLink(destination: SavedItemsView(isClicked: $isClicked).navigationBarTitle("Saved Items")) {
-                Text("Saved Items")
+                var filename = classificationResults[0]
+                filename = filename.replacingOccurrences(of: "daging", with: "").trimmingCharacters(in: .whitespaces)
+                filename = "dataset-\(filename)"
+                self.ayamData = loadCSV(from: filename)
             }
-       )
-        .onAppear {
-            guard !classificationResults.isEmpty else {
-             print("Tidak ada hasil klasifikasi yang tersedia")
-             return
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Warning"),
+                    message: Text("Please Input your Ingredients!"),
+                    dismissButton: .default(Text("OK"))
+                )
             }
-
-            var filename = classificationResults[0]
-            filename = filename.replacingOccurrences(of: "daging", with: "").trimmingCharacters(in: .whitespaces)
-            filename = "dataset-\(filename)"
-            self.ayamData = loadCSV(from: filename)
-            shuffledData = ayamData.shuffled()
-
         }
     }
-}
+    private func fetchDataItem(with title: String) -> DataItem? {
+            let fetchRequest = FetchDescriptor<DataItem>(predicate: #Predicate { dataItem in
+                dataItem.Title == title
+            })
+            
+            do {
+                return try context.fetch(fetchRequest).first
+            } catch {
+                print("Failed to fetch data item: \(error.localizedDescription)")
+                return nil
+            }
+        }
+        
+        private func getHeartColor(for item: AyamData) -> Color {
+            if let dataItem = fetchDataItem(with: item.Title) {
+                return dataItem.isClicked ? .white : Color(red: 220/255, green: 38/255, blue: 38/255)
+            } else {
+                return item.isClicked ? Color(red: 220/255, green: 38/255, blue: 38/255) : .white
+            }
+        }
+        
+        private func getHeartIconColor(for item: AyamData) -> Color {
+            if let dataItem = fetchDataItem(with: item.Title) {
+                return dataItem.isClicked ? Color(red: 220/255, green: 38/255, blue: 38/255) : .white
+            } else {
+                return item.isClicked ? .white : Color(red: 220/255, green: 38/255, blue: 38/255)
+            }
+        }
+        
+        func addItem(_ item: AyamData) {
+            let dataItem = DataItem(id: item.id.uuidString, Title: item.Title, Ingredients: item.Ingredients, Steps: item.Steps, Url: item.Url, isClicked: item.isClicked)
+            dataItem.isClicked = item.isClicked
 
-//#Preview {
-//    ResultView()
-//}
+            context.insert(dataItem)
+                    
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save item: \(error.localizedDescription)")
+            }
+        }
+
+        private func deleteItem(_ item: AyamData) {
+            
+            let itemTitleString = item.Title
+            let fetchRequest = FetchDescriptor<DataItem>(predicate: #Predicate { dataItem in
+                dataItem.Title == itemTitleString
+            })
+            
+            do {
+                let items = try context.fetch(fetchRequest)
+                for dataItem in items {
+                    context.delete(dataItem)
+                }
+                try context.save()
+            } catch {
+                print("Failed to delete item: \(error.localizedDescription)")
+            }
+        }
+}

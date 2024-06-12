@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var isActive = false
     @State private var size: CGFloat = 0.8
     @State private var opacity = 0.5
+//    @Environment(\.modelContext) private var context
     
     var body: some View {
         NavigationView {

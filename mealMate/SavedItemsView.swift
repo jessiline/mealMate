@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
-
+import SwiftData
 struct SavedItemsView: View {
-    @Binding var isClicked: Bool
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode)
+    var presentationMode: Binding<PresentationMode>
+    @Query private var items: [DataItem]
+    @Environment(\.modelContext) private var context
+    @Binding var ayamData: [AyamData]
+    @Binding var allIngredients: [String]
+
     var body: some View {
         VStack{
             ScrollView{
@@ -22,148 +27,104 @@ struct SavedItemsView: View {
                             .foregroundColor(.gray)
                         Spacer()
                     }
-                    HStack{
-                        Spacer()
-                        NavigationLink(destination: RecipeDetailView(isClicked: $isClicked).navigationBarTitle("Recipe Details")) {
-                            VStack{
-                                Image("ikanbumbukuning")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 165, height: 105)
-                                    .clipShape(
-                                        UnevenRoundedRectangle(topLeadingRadius: 12, topTrailingRadius: 12)
-                                    )
-                                ZStack{
-                                    UnevenRoundedRectangle(bottomLeadingRadius: 12, bottomTrailingRadius: 12)
-                                        .frame(width: 165, height: 110)
-                                        .foregroundColor(.white)
-                                    VStack{
-                                        HStack{
-                                            Text("Ikan Kuah Kuning")
-                                                .font(.system(size: 14))
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(.black)
-                                            Spacer()
-                                        }
-                                        HStack{
-                                            Text("102 Calories")
-                                                .font(.system(size: 12))
-                                                .foregroundColor(.gray)
-                                                .padding(.top,1)
-                                            Spacer()
-                                        }
-                                        Spacer()
-                                    }
-                                    .padding(10)
-                                    VStack(){
-                                        Spacer()
-                                        HStack{
-                                            Spacer()
-                                            ZStack {
-                                                Circle()
-                                                    .frame(width: 40, height: 40)
-                                                    .foregroundColor(isClicked ? Color(red: 220/255, green: 38/255, blue: 38/255) : .white)
-                                                    .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 3)
-                                                
-                                                Image(systemName: "heart")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(width: 18, height: 18)
-                                                    .foregroundColor(isClicked ? .white : Color(red: 220/255, green: 38/255, blue: 38/255))
-                                                
-                                            }
-                                            .onTapGesture {
-                                                isClicked.toggle()
-                                            }
-                                            .padding(10)
-                                        }
-                                    }
-                                    
-                                }
-                                .padding(.top,-9)
-                                .frame(maxWidth: 165)
-                                
-                                
-                            }
-                        }
-                        Spacer()
-                        VStack{
-                            Image("kambingguling")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 165, height: 105)
-                                .clipShape(
-                                    UnevenRoundedRectangle(topLeadingRadius: 12, topTrailingRadius: 12)
-                                )
-                            ZStack{
-                                UnevenRoundedRectangle(bottomLeadingRadius: 12, bottomTrailingRadius: 12)
-                                    .frame(width: 165, height: 110)
-                                    .foregroundColor(.white)
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 175))]) {
+                        ForEach (items){ item in
+                            NavigationLink(destination: RecipeDetailView(ayamData: [convertToAyamData(item)], allIngredients: $allIngredients ).navigationBarTitle("Recipe Details")) {
                                 VStack{
-                                    HStack{
-                                        Text("Kambing Guling")
-                                            .font(.system(size: 14))
-                                            .fontWeight(.semibold)
-                                        Spacer()
-                                    }
-                                    HStack{
-                                        Text("102 Calories")
-                                            .font(.system(size: 12))
-                                            .foregroundColor(.gray)
-                                            .padding(.top,1)
-                                        Spacer()
-                                    }
-                                    Spacer()
-                                }
-                                .padding(10)
-                                VStack(){
-                                    Spacer()
-                                    HStack{
-                                        Spacer()
-                                        ZStack {
-                                            Circle()
-                                                .frame(width: 40, height: 40)
-                                                .foregroundColor(isClicked ? Color(red: 220/255, green: 38/255, blue: 38/255) : .white)
-                                                .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 3)
-                                            
-                                            Image(systemName: "heart")
+                                    if let url = URL(string: "https://\(item.Url)") {
+                                        AsyncImage(url: url) { image in
+                                            image
                                                 .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: 18, height: 18)
-                                                .foregroundColor(isClicked ? .white : Color(red: 220/255, green: 38/255, blue: 38/255))
-                                            
+                                                .aspectRatio(contentMode: .fill)
+                                        } placeholder: {
+                                            ProgressView()
                                         }
-                                        .onTapGesture {
-                                            isClicked.toggle()
+                                        .frame(width: 165, height: 105)
+                                        .clipShape(
+                                            UnevenRoundedRectangle(topLeadingRadius: 12, topTrailingRadius: 12)
+                                        )
+                                    
+                                    }
+                                    ZStack{
+                                        UnevenRoundedRectangle(bottomLeadingRadius: 12, bottomTrailingRadius: 12)
+                                            .frame(width: 165, height: 110)
+                                            .foregroundColor(.white)
+                                        VStack{
+                                            HStack{
+                                                Text(item.Title)
+                                                    .font(.system(size: 14))
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.black)
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
                                         }
                                         .padding(10)
+                                        VStack(){
+                                            Spacer()
+                                            HStack{
+                                                Spacer()
+                                                ZStack {
+                                                    Circle()
+                                                        .frame(width: 40, height: 40)
+                                                        .foregroundColor(item.isClicked ? .white : Color(red: 220/255, green: 38/255, blue: 38/255) )
+                                                        .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 3)
+                                                    
+                                                    Image(systemName: "heart")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 18, height: 18)
+                                                        .foregroundColor(item.isClicked ? Color(red: 220/255, green: 38/255, blue: 38/255) : .white)
+                                                    
+                                                }
+                                                .onTapGesture {
+                                                    let index = items.firstIndex(where: { $0.id == item.id })!
+                                                    items[index].isClicked.toggle()
+                                                    if items[index].isClicked {
+                                                        deleteItem(item)
+                                                    }
+                                                }
+                                                .padding(10)
+                                            }
+                                        }
+                                        
                                     }
+                                    .padding(.top,-9)
+                                    .frame(maxWidth: 165)
+                                    
+                                    
                                 }
-                                
                             }
-                            .padding(.top,-9)
-                            .frame(maxWidth: 165)
-                            
-                            
                         }
                         
-                        Spacer()
                     }
+                    .padding(.horizontal)
+
                 }
                 .padding(.top,20)
 
             }
 
             .frame(maxWidth: .infinity)
-            Spacer()
             
             
         }
         .background(Color(red: 244/255, green: 244/255, blue: 244/255))
         .padding(.top,0.2)
     }
-}
-
-#Preview {
-    SavedItemsView(isClicked: .constant(false))
+    func deleteItem(_ item: DataItem) {
+        if let ayamIndex = ayamData.firstIndex(where: { $0.Title == item.Title }) {
+            ayamData[ayamIndex].isClicked = false
+        }
+        context.delete(item)
+        do {
+            try context.save()
+        } catch {
+            print("Failed to delete item: \(error.localizedDescription)")
+        }
+    }
+    func convertToAyamData(_ item: DataItem) -> AyamData {
+        return AyamData(Title: item.Title, Ingredients: item.Ingredients, Steps: item.Steps, Url: item.Url, isClicked: item.isClicked)
+        }
 }
