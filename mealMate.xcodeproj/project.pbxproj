@@ -25,8 +25,8 @@
 		3089B42E2C10487A008886D8 /* dataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3089B42D2C10487A008886D8 /* dataset.swift */; };
 		3089B44C2C11A942008886D8 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3089B44B2C11A942008886D8 /* DataItem.swift */; };
 		3089B45A2C159E3D008886D8 /* dataset-sapi.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3089B4592C159E3D008886D8 /* dataset-sapi.csv */; };
+		30EDE0C22C216B72000ECD3E /* dataset-ikan.csv in Resources */ = {isa = PBXBuildFile; fileRef = 30EDE0C12C216B72000ECD3E /* dataset-ikan.csv */; };
 		30FAEAFD2C16AB4E00E9525B /* dataset-ayam.csv in Resources */ = {isa = PBXBuildFile; fileRef = 30FAEAFC2C16AB4E00E9525B /* dataset-ayam.csv */; };
-		30FAEAFF2C1811AD00E9525B /* dataset ikan.csv in Resources */ = {isa = PBXBuildFile; fileRef = 30FAEAFE2C1811AD00E9525B /* dataset ikan.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +68,8 @@
 		3089B42D2C10487A008886D8 /* dataset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataset.swift; sourceTree = "<group>"; };
 		3089B44B2C11A942008886D8 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		3089B4592C159E3D008886D8 /* dataset-sapi.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-sapi.csv"; path = "../../../../Downloads/dataset-sapi.csv"; sourceTree = "<group>"; };
+		30EDE0C12C216B72000ECD3E /* dataset-ikan.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-ikan.csv"; path = "../../../../Downloads/dataset-ikan.csv"; sourceTree = "<group>"; };
 		30FAEAFC2C16AB4E00E9525B /* dataset-ayam.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset-ayam.csv"; path = "../../../../Downloads/dataset-ayam.csv"; sourceTree = "<group>"; };
-		30FAEAFE2C1811AD00E9525B /* dataset ikan.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "dataset ikan.csv"; path = "../../../../Downloads/dataset ikan.csv"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,7 @@
 				3089B42D2C10487A008886D8 /* dataset.swift */,
 				3089B44B2C11A942008886D8 /* DataItem.swift */,
 				3089B4592C159E3D008886D8 /* dataset-sapi.csv */,
-				30FAEAFE2C1811AD00E9525B /* dataset ikan.csv */,
+				30EDE0C12C216B72000ECD3E /* dataset-ikan.csv */,
 				30FAEAFC2C16AB4E00E9525B /* dataset-ayam.csv */,
 				3089B4252C1047F7008886D8 /* proteindetection.mlmodel */,
 				3022E9162C046A5600E21163 /* Assets.xcassets */,
@@ -270,10 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EDE0C22C216B72000ECD3E /* dataset-ikan.csv in Resources */,
 				30FAEAFD2C16AB4E00E9525B /* dataset-ayam.csv in Resources */,
 				3022E91A2C046A5600E21163 /* Preview Assets.xcassets in Resources */,
 				3089B45A2C159E3D008886D8 /* dataset-sapi.csv in Resources */,
-				30FAEAFF2C1811AD00E9525B /* dataset ikan.csv in Resources */,
 				3022E9172C046A5600E21163 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
